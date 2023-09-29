@@ -64,7 +64,7 @@ module.exports = async function (context, req) {
 
         if (model.startsWith('gpt-')) {
             const apiVersion = "2023-03-15-preview";
-            openaiurl = `https://eastus.api.cognitive.microsoft.com/openai/deployments/${model}/chat/completions?api-version=${apiVersion}`;
+            openaiurl = `https://eastus2.api.cognitive.microsoft.com/openai/deployments/${model}/chat/completions?api-version=${apiVersion}`;
             body['messages'] = body['prompt'];
             delete body['prompt'];
             delete body['best_of'];
@@ -73,7 +73,7 @@ module.exports = async function (context, req) {
             body.presence_penalty = 0;
         } else {
             const apiVersion = "2022-12-01";
-            openaiurl = `https://eastus.api.cognitive.microsoft.com/openai/deployments/${model}/completions?api-version=${apiVersion}`;
+            openaiurl = `https://eastus2.api.cognitive.microsoft.com/openai/deployments/${model}/completions?api-version=${apiVersion}`;
             body.prompt = body['prompt'].map(c => c.role + ":" + c.content).join('\n\n');
         }
         context.log(body);
