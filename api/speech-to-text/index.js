@@ -5,7 +5,8 @@ const { setJson, setErrorJson } = require("../contextHelper");
 const temp = require('temp');
 const fs = require('fs');
 
-const speechRegion = process.env.speechRegion;
+//const speechRegion = process.env.speechRegion;
+const speechRegion = "eastus2";
 const ttsApiKey = process.env.ttsApiKey;
 const chatStorageAccountConnectionString = process.env.chatStorageAccountConnectionString;
 
